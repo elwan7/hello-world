@@ -72,17 +72,27 @@
 
     }//end of class MyCustomAdapter
     
+
+
     //adapter class
     ArrayList<AdapterItems> listNewsData = new ArrayList<>();
     MyCustomAdapter myAdapter;
     ListView listView;
-    
-    
-         //access on my listView
-         listView = (ListView) findViewById(R.id.listView);
+ 
+    //access on my listView
+    listView = (ListView) findViewById(R.id.listView);
+    //add data and view it
+    listNewsData.add(new AdapterItems(1,"admin","develop apps"));
 
-        //add data and view it
-        listNewsData.add(new AdapterItems(1,"admin","develop apps"));
+    //pass arrayList to Adapter
+    myAdapter=new MyCustomAdapter(listNewsData);
+    //display that Adapter in listView
+    listView.setAdapter(myAdapter);
+
+    //update  data in listview
+    listnewsData.add(new AdapterItems(2,"tester"," test apps"));
+    myadapter.notifyDataSetChanged();
+
     
     
     
