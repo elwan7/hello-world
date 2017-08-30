@@ -1,34 +1,37 @@
 
-/*
-*Adapter snaped code for Android apps that have
-user id, job title and job description
-*and i want to pass data to my layout
-*/
+    /*
+    *Adapter snaped code for Android apps that have
+    user id, job title and job description
+    *and i want to pass data to my layout
+    */
 
-public class AdapterItems
-{
-    public  int iD;
-    public  String jobTitle;
-    public  String description;
+    public class AdapterItems
+    {
+        public  int iD;
+        public  String jobTitle;
+        public  String description;
 
-    //for news details
-    AdapterItems( int id, String jobTitle,String description){
-        this.iD = id;
-        this.jobTitle= jobTitle;
-        this.description= description;
+        //for news details
+        AdapterItems( int id, String jobTitle,String description){
+            this.iD = id;
+            this.jobTitle= jobTitle;
+            this.description= description;
+        }
+
     }
 
-}
 
-
-   //display new list
+    //display new list
+    /** an Adapter that pulls content from a source such as an array or
+     * database query and converts each item result into a view that's placed into the list.*/
+     
     private class MyCustomAdapter extends BaseAdapter {
         public ArrayList<AdapterItems> listNewsDataAdapter ;
 
         public MyCustomAdapter(ArrayList<AdapterItems>  listnewsDataAdapter) {
             this.listNewsDataAdapter=listnewsDataAdapter;
         }
-
+        
         @Override
         public int getCount() {
             return listNewsDataAdapter.size();
@@ -68,6 +71,18 @@ public class AdapterItems
         }
 
     }//end of class MyCustomAdapter
+    
+    //adapter class
+    ArrayList<AdapterItems> listNewsData = new ArrayList<>();
+    MyCustomAdapter myAdapter;
+    ListView listView;
+    
+    
+         //access on my listView
+         listView = (ListView) findViewById(R.id.listView);
+
+        //add data and view it
+        listNewsData.add(new AdapterItems(1,"admin","develop apps"));
     
     
     
