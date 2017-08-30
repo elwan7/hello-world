@@ -1,10 +1,6 @@
 
-    /*
-    *Adapter snaped code for Android apps that have
-    user id, job title and job description
-    *and i want to pass data to my layout
-    */
 
+//define items which in my list View and i want to pass data to my layout
     public class AdapterItems
     {
         public  int iD;
