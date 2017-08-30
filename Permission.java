@@ -1,4 +1,8 @@
 
+/** Permissions in manifest file ----- 
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    */
 
     //access to Permissions
     void checkUserPermissions(){
@@ -36,3 +40,17 @@
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
+
+
+
+    //get last location
+    void getLastLocation(){
+        LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
+        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        txtLocation.setText("Longitude = "+ String.valueOf(location.getLongitude()) +
+                "Altitude = "+String.valueOf(location.getLatitude()));
+    }
+
+
+
+
