@@ -1,0 +1,88 @@
+
+/*
+*Adapter snaped code for Android apps that have
+user id, job title and job description
+*and i want to pass data to my layout
+*/
+
+public class AdapterItems
+{
+    public  int iD;
+    public  String jobTitle;
+    public  String description;
+
+    //for news details
+    AdapterItems( int id, String jobTitle,String description){
+        this.iD = id;
+        this.jobTitle= jobTitle;
+        this.description= description;
+    }
+
+}
+
+
+   //display new list
+    private class MyCustomAdapter extends BaseAdapter {
+        public ArrayList<AdapterItems> listNewsDataAdapter ;
+
+        public MyCustomAdapter(ArrayList<AdapterItems>  listnewsDataAdapter) {
+            this.listNewsDataAdapter=listnewsDataAdapter;
+        }
+
+        @Override
+        public int getCount() {
+            return listNewsDataAdapter.size();
+        }
+
+        @Override
+        public String getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+//        call specific layout and display it in my list
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            //connect to another layout by inflater
+            LayoutInflater Inflater = getLayoutInflater();
+            View myView = Inflater.inflate(R.layout.layout_ticket, null);
+
+//            create object
+            final AdapterItems items = listNewsDataAdapter.get(position);
+
+            TextView txtId =(TextView) myView.findViewById(R.id.txtId);
+            txtId.setText("id: "+ s.iD);
+
+            TextView txtTitle=( TextView)myView.findViewById(R.id.txtTitle);
+            txtTitle.setText(items.jobTitle);
+            
+            TextView txtDesc=( TextView)myView.findViewById(R.id.txtDesc);
+            txtDesc.setText(items.description);
+
+            return myView;
+        }
+
+    }//end of class MyCustomAdapter
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
