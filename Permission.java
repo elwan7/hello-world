@@ -1,8 +1,11 @@
 
-/** Permissions in manifest file ----- 
+/** Code dangerous Permission uses in MainActivity & Manifest  */
+
+/* Permissions in manifest file ----- 
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
     */
+
 
     //access to Permissions
     void checkUserPermissions(){
