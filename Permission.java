@@ -56,6 +56,7 @@
     }
 
 
+    //extract data from another App
     void readContacts(){
         //read name, telephone
         //extract data from another App via ContentProvider
@@ -74,8 +75,13 @@
             /** Move the cursor to the next row.
              This method will return false if the cursor is already past the last entry in the result set.*/
         }
-    }//end of readContacts Method
 
+        //add data and view it
+        myAdapter=new MyCustomAdapter(contactList);
+        ListView listView =(ListView)findViewById(R.id.listView);
+        listView.setAdapter(myAdapter);
+
+    }//end of readContacts Method
 
 
 
