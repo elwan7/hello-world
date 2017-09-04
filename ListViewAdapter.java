@@ -17,7 +17,7 @@
     }
 
 
-    //display new list
+    //Adapter class .. display new list
     /** an Adapter that pulls content from a source such as an array or
      * database query and converts each item result into a view that's placed into the list.*/
      
