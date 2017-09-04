@@ -56,6 +56,7 @@
     }
 
 
+
     //extract data from another App
     void readContacts(){
         //read name, telephone
@@ -82,6 +83,36 @@
         listView.setAdapter(myAdapter);
 
     }//end of readContacts Method
+
+
+
+    //import local Media
+    public ArrayList<SongItems> getAllSong(){
+
+        String selection = MediaStore.Audio.Media.IS_MUSIC ;
+        //extract data from mobile Storage via Content Provider
+        Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+                null, selection, null, null);
+
+        //loop to retrieve data  with row by row
+        if (cursor.moveToFirst() /*This method will return false if the cursor is empty*/){
+            do{
+                //bring data from DB in that arrayList ..
+                String path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+                String songName = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME));
+                String artistName = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
+                String albumName = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM));
+
+                songList.add(new SongItems(path, songName, artistName, albumName));
+
+            }while (cursor.moveToNext());
+            /** Move the cursor to the next row.
+             This method will return false if the cursor is already past the last entry in the result set.*/
+        }
+
+        return songList;
+    }
+
 
 
 
